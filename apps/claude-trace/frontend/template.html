@@ -1,19 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>claude-traffic-__CLAUDE_LOGGER_TITLE_REPLACEMENT_UNIQUE_9487__</title>
-</head>
-<body>
-    <div id="app"></div>
-    
-    <script>
-      window.claudeData = JSON.parse(atob('__CLAUDE_LOGGER_DATA_REPLACEMENT_UNIQUE_9487__'));
-    </script>
-    
-    <script>
-__CLAUDE_LOGGER_BUNDLE_REPLACEMENT_UNIQUE_9487__
-    </script>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>claude-traffic-__CLAUDE_LOGGER_TITLE_REPLACEMENT_UNIQUE_9487__</title>
+	</head>
+
+	<body>
+		<div id="app"></div>
+
+		<script>
+			// Properly decode base64 with UTF-8 support
+			function base64ToUtf8(base64) {
+				const binaryString = atob(base64);
+				const bytes = new Uint8Array(binaryString.length);
+				for (let i = 0; i < binaryString.length; i++) {
+					bytes[i] = binaryString.charCodeAt(i);
+				}
+				return new TextDecoder("utf-8").decode(bytes);
+			}
+
+			window.claudeData = JSON.parse(base64ToUtf8("__CLAUDE_LOGGER_DATA_REPLACEMENT_UNIQUE_9487__"));
+		</script>
+
+		<script>
+			__CLAUDE_LOGGER_BUNDLE_REPLACEMENT_UNIQUE_9487__;
+		</script>
+	</body>
 </html>
